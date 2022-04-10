@@ -1,7 +1,6 @@
 ## Table of contents
 
 * [General-info](#general-info)
-* [Tests]($tests)
 * [Technologies]($technologies)
 
 
@@ -11,11 +10,6 @@
 The code includes basic domain implementation such as Product Basket Receipt and also stub for the Product database.
 Discount may by applied on receipt. If the receipt's total is equal or greater than 50 then 10% discount is applied.
 If the receipt's contains 3 or more grain products then 15% discount is applied.
-
-## Tests
-
-The applications contain tests which checks the discounts on the receipt and controller was tested using mockito library.
-
 
 ## Technologies
 
