@@ -41,17 +41,11 @@ public class ReceiptControllerTestSuite {
     private MockMvc mvc;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-
     private final ProductDb productDb = new ProductDb();
-
     private final Basket basket = new Basket();
-
     private final FifteenPercentDiscount fifteenPercentDiscount = new FifteenPercentDiscount();
-
     private final TenPercentDiscount tenPercentDiscount = new TenPercentDiscount();
-
     private final DiscountServices discountServices = new DiscountServices();
-
 
     @Test
     void shouldApply15PercentDiscountWithThreeGranProductsAndLessThan50TotalPrice() throws Exception {
@@ -209,15 +203,13 @@ public class ReceiptControllerTestSuite {
         // Given
         var orange = productDb.getProduct("Orange");
         basket.addProduct(orange);
-        var request = objectMapper.writeValueAsString(basket);
 
         when(receiptService.getProduct("Orange")).thenReturn(orange);
 
         // When && Then
         mvc.perform(MockMvcRequestBuilders.get("/v1/product/Orange")
                 .contentType(MediaType.APPLICATION_JSON)
-                .characterEncoding("utf-8")
-                .content(request))
+                .param("name", "Orange"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk());
         assertEquals(receiptService.getProduct("Orange"), productDb.getProduct("Orange"));

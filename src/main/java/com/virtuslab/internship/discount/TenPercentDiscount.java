@@ -8,6 +8,7 @@ public class TenPercentDiscount implements Discount {
 
     public static String NAME = "TenPercentDiscount";
 
+    @Override
     public Receipt apply(Receipt receipt) {
         if (shouldApply(receipt)) {
             var totalPrice = receipt.totalPrice().multiply(BigDecimal.valueOf(0.9));

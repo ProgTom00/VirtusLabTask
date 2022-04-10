@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TenAndFifteenPercentDiscountTest {
 
-
     @Test
     void shouldApplyAllDiscounts() {
         // Given

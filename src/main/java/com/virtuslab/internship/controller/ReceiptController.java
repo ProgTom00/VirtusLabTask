@@ -22,7 +22,7 @@ public class ReceiptController {
     }
 
     @GetMapping("/product/{name}")
-    public Product getProduct(@RequestParam(required = false) String name) {
+    public Product getProduct(@RequestParam String name) {
         return receiptService.getProduct(name);
 
     }
